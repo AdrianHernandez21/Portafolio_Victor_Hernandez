@@ -1,14 +1,5 @@
 import "./style.css";
 
-/**
- * ✅ Tema: "Nevermore / academia" (sutil, profesional)
- * - Sin referencias directas a Netflix/Wednesday (evita copyright / fanpage vibe)
- * - GUIÑOS: “Archivo”, “Dossier”, “Notas”, “Case file” en microcopy
- * - Canvas más “misterioso” (menos sci-fi), puntos más finos, movimiento más lento
- */
-
-/* -------------------- Links / Contact -------------------- */
-
 const LINKEDIN_URL = "https://www.linkedin.com/in/victor-hernandez-ba559022a/";
 const QUALITY_URL = "https://cadereytaquality.com/";
 const GITHUB_URL = "https://github.com/AdrianHernandez21";
@@ -17,23 +8,11 @@ const EMAIL = "victorhernandez.fraga@gmail.com";
 const PHONE_DISPLAY = "+52 8281040259";
 const PHONE_TEL = "+528281040259";
 
-/**
- * ✅ IMPORTANTÍSIMO para GitHub Pages:
- * BASE será:
- * - "/" en local
- * - "/Portafolio_Victor_Hernandez/" en GitHub Pages
- */
 const BASE = import.meta.env.BASE_URL;
 
-/* -------------------- Assets -------------------- */
-
-// CV en /public/
 const CV_PDF = `${BASE}CV_Victor_Hernandez.pdf`;
-
-// Tu foto (en /public/profile.jpeg)
 const PROFILE_IMG = `${BASE}profile.jpeg`;
 
-// Screenshots (en /public/)
 const PROJECT_IMAGES = {
   quality: `${BASE}Quality1.png`,
   cartas: `${BASE}CartasAsignacion.png`,
@@ -41,12 +20,9 @@ const PROJECT_IMAGES = {
   creditos: `${BASE}Fincen1.png`,
 };
 
-// Certificados (en /public/)
 const CERT_IMAGES = {
   python: `${BASE}cert_python_santander.png`,
 };
-
-/* -------------------- Data -------------------- */
 
 const PROJECTS = [
   {
@@ -115,7 +91,6 @@ const PROJECTS = [
   },
 ];
 
-// Más proyectos (compactos)
 const MORE_PROJECTS = [
   {
     id: "users-devices",
@@ -146,7 +121,6 @@ const MORE_PROJECTS = [
   },
 ];
 
-// Cursos completados (con evidencia)
 const COURSES_DONE = [
   {
     id: "python-santander",
@@ -158,7 +132,6 @@ const COURSES_DONE = [
   },
 ];
 
-// Cursos en progreso
 const COURSES_IN_PROGRESS = [
   {
     id: "pentest-edutin",
@@ -174,29 +147,22 @@ const COURSES_IN_PROGRESS = [
   },
 ];
 
-/* -------------------- Render -------------------- */
-
 const app = document.querySelector("#app");
 if (!app) throw new Error("No se encontró el contenedor #app en el HTML.");
 
 app.innerHTML = `
-  <!-- Atmospheric dots (canvas) -->
   <canvas id="spaceDots" class="pointer-events-none fixed inset-0 -z-20"></canvas>
 
-  <!-- Background glow (sutil, academia) -->
   <div class="pointer-events-none fixed inset-0 -z-10">
     <div class="absolute -top-24 left-10 h-80 w-80 rounded-full bg-accent/12 blur-3xl"></div>
     <div class="absolute -top-16 right-10 h-80 w-80 rounded-full bg-accent/8 blur-3xl"></div>
     <div class="absolute bottom-0 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-white/5 blur-3xl"></div>
   </div>
 
-  <!-- Grain overlay (requiere CSS, pero no rompe si no existe) -->
   <div class="grain pointer-events-none fixed inset-0 -z-10 opacity-40"></div>
 
-  <!-- Modal root -->
   <div id="modalRoot"></div>
 
-  <!-- Header -->
   <header class="sticky top-0 z-50 border-b border-line bg-ink/60 backdrop-blur">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
       <a href="#top"
@@ -232,10 +198,8 @@ app.innerHTML = `
     </div>
   </header>
 
-  <!-- Main -->
   <main id="top" class="mx-auto max-w-6xl px-5">
 
-    <!-- HERO -->
     <section class="grid gap-8 py-16 md:grid-cols-[1.35fr_.65fr]">
       <div>
         <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-muted">
@@ -302,7 +266,6 @@ app.innerHTML = `
       </aside>
     </section>
 
-    <!-- PROYECTOS -->
     <section id="proyectos" class="py-14">
       <div class="flex flex-col gap-1">
         <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted">
@@ -321,7 +284,6 @@ app.innerHTML = `
         ${PROJECTS.map((p) => projectCard(p)).join("")}
       </div>
 
-      <!-- MÁS PROYECTOS -->
       <div class="mt-10">
         <h3 class="text-lg font-semibold font-[ui-serif] tracking-tight">Más proyectos</h3>
         <p class="mt-1 text-sm text-muted">
@@ -334,7 +296,6 @@ app.innerHTML = `
       </div>
     </section>
 
-    <!-- EXPERIENCIA -->
     <section id="experiencia" class="py-14">
       <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted">
         <span class="rounded-full border border-line bg-white/5 px-3 py-1">Registro</span>
@@ -372,7 +333,6 @@ app.innerHTML = `
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills" class="py-14">
       <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted">
         <span class="rounded-full border border-line bg-white/5 px-3 py-1">Herramientas</span>
@@ -390,7 +350,6 @@ app.innerHTML = `
       </div>
     </section>
 
-    <!-- CURSOS -->
     <section id="cursos" class="py-14">
       <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted">
         <span class="rounded-full border border-line bg-white/5 px-3 py-1">Archivo</span>
@@ -416,7 +375,6 @@ app.innerHTML = `
       </div>
     </section>
 
-    <!-- CONTACTO -->
     <section id="contacto" class="py-14">
       <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted">
         <span class="rounded-full border border-line bg-white/5 px-3 py-1">Canal</span>
@@ -455,8 +413,6 @@ app.innerHTML = `
   </main>
 `;
 
-/* -------------------- Events: modales -------------------- */
-
 const modalRoot = document.getElementById("modalRoot");
 
 document.querySelectorAll("[data-project-id]").forEach((el) => {
@@ -478,8 +434,6 @@ document.querySelectorAll("[data-cert-id]").forEach((el) => {
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeModal();
 });
-
-/* -------------------- Modales -------------------- */
 
 function openProjectModal(project) {
   if (!modalRoot) return;
@@ -634,8 +588,6 @@ function closeModal() {
   document.body.style.overflow = "";
 }
 
-/* -------------------- Fondo animado (Nevermore style) -------------------- */
-
 initSpaceDots();
 
 function initSpaceDots() {
@@ -650,8 +602,8 @@ function initSpaceDots() {
   let raf = 0;
 
   const dots = [];
-  const DOTS_COUNT = 58; // menos densidad (más sobrio)
-  const SPEED = 0.12; // más lento (menos “space”)
+  const DOTS_COUNT = 58;
+  const SPEED = 0.12;
 
   function resize() {
     w = canvas.width = window.innerWidth;
@@ -668,10 +620,10 @@ function initSpaceDots() {
       dots.push({
         x: rand(0, w),
         y: rand(0, h),
-        r: rand(0.6, 2.0), // más fino
+        r: rand(0.6, 2.0),
         vx: rand(-SPEED, SPEED),
         vy: rand(-SPEED, SPEED),
-        a: rand(0.08, 0.28), // menos brillo
+        a: rand(0.08, 0.28),
       });
     }
   }
@@ -690,8 +642,6 @@ function initSpaceDots() {
 
       ctx.beginPath();
       ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-
-      // Tono frío y tenue (academia / misterio)
       ctx.fillStyle = `rgba(190, 205, 255, ${d.a})`;
       ctx.fill();
     }
@@ -704,7 +654,6 @@ function initSpaceDots() {
         const dy = a.y - b.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        // menos líneas y más discretas
         if (dist < 120) {
           const alpha = (1 - dist / 120) * 0.045;
           ctx.strokeStyle = `rgba(190, 205, 255, ${alpha})`;
@@ -731,8 +680,6 @@ function initSpaceDots() {
 
   import.meta.hot?.dispose(() => cancelAnimationFrame(raf));
 }
-
-/* ---------- UI helpers ---------- */
 
 function navLink(label, id) {
   return `
@@ -963,9 +910,3 @@ function escapeHtml(text) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
-
-/* ✅ IMPORTANTE:
-   - initSpaceDots() solo se declara 1 vez y se llama 1 vez.
-   - closeModal() solo existe 1 vez.
-   - El look Nevermore real se termina en style.css (accent morado frío, grain, bordes sutiles).
-*/
