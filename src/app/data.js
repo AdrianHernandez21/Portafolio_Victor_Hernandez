@@ -107,7 +107,7 @@ export function getData(config) {
       desc:
         "Sistema para administración y control de pedidos operativos (proyecto interno/cliente).",
       stack: ["Node.js", "Express", "PostgreSQL", "Bootstrap"],
-      role: "Desarrollador (backend y flujo operativo)",
+      role: "Líder del proyecto y administrador del sistema (dirección técnica y flujo operativo)",
     },
   ];
 
