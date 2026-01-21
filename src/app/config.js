@@ -1,6 +1,8 @@
 export function getConfig() {
+  // Obtiene la base pública del proyecto (compatible con Vite).
   const BASE = import.meta.env.BASE_URL;
 
+  // Configuración centralizada de enlaces, contacto y assets.
   return {
     BASE,
     LINKEDIN_URL: "https://www.linkedin.com/in/victor-hernandez-ba559022a/",

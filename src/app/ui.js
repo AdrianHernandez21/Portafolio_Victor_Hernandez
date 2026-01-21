@@ -2,6 +2,7 @@ import { openProjectModal, openCertModal, closeModal } from "./modals.js";
 import { escapeHtml } from "./utils.js";
 
 export function wireEvents({ data }) {
+  // Conecta eventos: clicks para abrir modales y ESC para cerrarlos.
   const modalRoot = document.getElementById("modalRoot");
   if (!modalRoot) return;
 
@@ -27,6 +28,7 @@ export function wireEvents({ data }) {
 }
 
 export function navLink(label, id) {
+  // Link de navegación (header) a una sección por id.
   return `
     <a href="#${id}"
       class="rounded-xl px-3 py-2 text-sm text-muted hover:bg-white/5 hover:text-white transition">
@@ -36,6 +38,7 @@ export function navLink(label, id) {
 }
 
 export function pill(text) {
+  // Etiqueta visual pequeña (chips) para resaltar conceptos.
   return `
     <span class="rounded-full border border-line bg-white/5 px-3 py-1 text-sm">
       ${escapeHtml(text)}
@@ -44,6 +47,7 @@ export function pill(text) {
 }
 
 export function primaryBtn(text, href) {
+  // Botón primario (CTA) reutilizable.
   return `
     <a href="${href}"
       class="rounded-2xl border border-accent/40 bg-accent/12 px-5 py-3 text-sm font-semibold shadow-soft hover:-translate-y-0.5 transition">
@@ -53,6 +57,7 @@ export function primaryBtn(text, href) {
 }
 
 export function secondaryBtn(text, href) {
+  // Botón secundario para acciones de soporte/navegación.
   return `
     <a href="${href}"
       class="rounded-2xl border border-line bg-white/5 px-5 py-3 text-sm font-semibold hover:bg-white/10 transition">
@@ -62,6 +67,7 @@ export function secondaryBtn(text, href) {
 }
 
 export function infoCard(title, text) {
+  // Tarjeta informativa simple (sidebar) con título y texto.
   return `
     <div class="rounded-2xl border border-line bg-white/5 p-4">
       <h3 class="text-sm font-semibold">${escapeHtml(title)}</h3>
@@ -71,6 +77,7 @@ export function infoCard(title, text) {
 }
 
 export function photoCard(PROFILE_IMG) {
+  // Tarjeta de perfil: foto + tagline de especialidad.
   return `
     <div class="rounded-2xl border border-line bg-white/5 p-4">
       <div class="flex items-center gap-4">
@@ -96,6 +103,7 @@ export function photoCard(PROFILE_IMG) {
 }
 
 export function projectCard(p) {
+  // Card clickable de proyecto (abre modal usando data-project-id).
   return `
     <article
       data-project-id="${p.id}"
@@ -148,6 +156,7 @@ export function projectCard(p) {
 }
 
 export function moreProjectCard(p) {
+  // Variante compacta para “Más proyectos” (sin modal ni link público).
   return `
     <article class="rounded-2xl border border-line bg-white/5 p-4 hover:bg-white/[0.07] transition">
       <div class="flex items-start justify-between gap-3">
@@ -179,6 +188,7 @@ export function moreProjectCard(p) {
 }
 
 export function certCard(c) {
+  // Card clickable de certificado (abre modal usando data-cert-id).
   return `
     <article
       data-cert-id="${c.id}"
@@ -207,6 +217,7 @@ export function certCard(c) {
 }
 
 export function progressCourseCard(c) {
+  // Card simple para cursos “En curso” (sin imagen ni modal).
   return `
     <article class="rounded-2xl border border-line bg-white/5 p-4">
       <div class="flex items-start justify-between gap-3">
@@ -221,6 +232,7 @@ export function progressCourseCard(c) {
 }
 
 export function experienceCard({ company, role, time, bullets }) {
+  // Bloque de experiencia: encabezado + bullets principales.
   return `
     <div class="rounded-2xl border border-line bg-white/5 p-4">
       <div class="flex flex-wrap justify-between gap-2">
@@ -239,6 +251,7 @@ export function experienceCard({ company, role, time, bullets }) {
 }
 
 export function skillCard(title, text) {
+  // Card de skills: título + lista corta (texto).
   return `
     <div class="rounded-2xl border border-line bg-white/5 p-4">
       <h3 class="text-sm font-semibold">${escapeHtml(title)}</h3>

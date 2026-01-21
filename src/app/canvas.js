@@ -1,28 +1,35 @@
 export function initSpaceDots() {
+  // Inicializa el canvas de fondo con puntos/lineas animadas.
   const canvas = document.getElementById("spaceDots");
   if (!canvas) return;
 
+  // Obtiene el contexto 2D; si no existe, se cancela.
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
 
+  // Tamaño actual del canvas y referencia al requestAnimationFrame.
   let w = 0;
   let h = 0;
   let raf = 0;
 
+  // Configuración y estado de partículas.
   const dots = [];
   const DOTS_COUNT = 58;
   const SPEED = 0.12;
 
   function resize() {
+    // Ajusta el canvas al tamaño de la ventana.
     w = canvas.width = window.innerWidth;
     h = canvas.height = window.innerHeight;
   }
 
   function rand(min, max) {
+    // Helper para números aleatorios en rango.
     return Math.random() * (max - min) + min;
   }
 
   function seed() {
+    // Crea el set inicial de puntos con posición, velocidad y alpha.
     dots.length = 0;
     for (let i = 0; i < DOTS_COUNT; i++) {
       dots.push({
@@ -37,9 +44,11 @@ export function initSpaceDots() {
   }
 
   function step() {
+    // Limpia el frame y dibuja puntos + conexiones cercanas.
     ctx.clearRect(0, 0, w, h);
 
     for (const d of dots) {
+      // Actualiza posición y aplica “wrap-around” en bordes.
       d.x += d.vx;
       d.y += d.vy;
 
@@ -48,6 +57,7 @@ export function initSpaceDots() {
       if (d.y < -20) d.y = h + 20;
       if (d.y > h + 20) d.y = -20;
 
+      // Dibuja cada punto.
       ctx.beginPath();
       ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(190, 205, 255, ${d.a})`;
@@ -56,6 +66,7 @@ export function initSpaceDots() {
 
     for (let i = 0; i < dots.length; i++) {
       for (let j = i + 1; j < dots.length; j++) {
+        // Conecta puntos cercanos con líneas tenues.
         const a = dots[i];
         const b = dots[j];
         const dx = a.x - b.x;
@@ -74,17 +85,21 @@ export function initSpaceDots() {
       }
     }
 
+    // Loop de animación.
     raf = requestAnimationFrame(step);
   }
 
+  // Arranque inicial del fondo animado.
   resize();
   seed();
   step();
 
   window.addEventListener("resize", () => {
+    // Recalcula tamaño y re-genera puntos al redimensionar.
     resize();
     seed();
   });
 
+  // Limpieza automática del RAF cuando Vite hace HMR.
   import.meta.hot?.dispose(() => cancelAnimationFrame(raf));
 }

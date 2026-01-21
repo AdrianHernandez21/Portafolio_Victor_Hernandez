@@ -1,4 +1,5 @@
 export function getData(config) {
+  // Rutas de imágenes de proyectos, resueltas con la BASE del config.
   const PROJECT_IMAGES = {
     quality: `${config.BASE}Quality1.png`,
     cartas: `${config.BASE}CartasAsignacion.png`,
@@ -6,10 +7,12 @@ export function getData(config) {
     creditos: `${config.BASE}Fincen1.png`,
   };
 
+  // Rutas de imágenes para certificados.
   const CERT_IMAGES = {
     python: `${config.BASE}cert_python_santander.png`,
   };
 
+  // Proyectos principales a mostrar en la sección destacada.
   const PROJECTS = [
     {
       id: "quality",
@@ -77,6 +80,7 @@ export function getData(config) {
     },
   ];
 
+  // Proyectos adicionales sin enlace público (por confidencialidad).
   const MORE_PROJECTS = [
     {
       id: "users-devices",
@@ -107,6 +111,7 @@ export function getData(config) {
     },
   ];
 
+  // Cursos completados con certificado.
   const COURSES_DONE = [
     {
       id: "python-santander",
@@ -118,6 +123,7 @@ export function getData(config) {
     },
   ];
 
+  // Cursos actualmente en progreso.
   const COURSES_IN_PROGRESS = [
     { id: "pentest-edutin", title: "Pentest", org: "Edutin Academy", status: "En curso" },
     {
@@ -128,6 +134,7 @@ export function getData(config) {
     },
   ];
 
+  // Expone toda la data estructurada para el render.
   return {
     PROJECTS,
     MORE_PROJECTS,

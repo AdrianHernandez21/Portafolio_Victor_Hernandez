@@ -14,6 +14,7 @@ import {
 } from "./ui.js";
 
 export function renderApp({ config, data }) {
+  // Render principal: arma todo el HTML usando config (links/assets) y data (proyectos/cursos).
   return `
   <canvas id="spaceDots" class="pointer-events-none fixed inset-0 -z-20"></canvas>
 

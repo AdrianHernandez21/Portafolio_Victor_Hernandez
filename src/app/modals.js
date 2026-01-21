@@ -1,6 +1,7 @@
 import { escapeHtml } from "./utils.js";
 
 export function openProjectModal(modalRoot, project) {
+  // Renderiza el modal con el detalle completo de un proyecto.
   modalRoot.innerHTML = `
     <div id="modalOverlay"
       class="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
@@ -76,6 +77,7 @@ export function openProjectModal(modalRoot, project) {
     </div>
   `;
 
+  // Conecta el botón de cierre y el click fuera del modal.
   const btn = document.getElementById("modalCloseBtn");
   if (btn) btn.addEventListener("click", () => closeModal(modalRoot));
 
@@ -90,6 +92,7 @@ export function openProjectModal(modalRoot, project) {
 }
 
 export function openCertModal(modalRoot, cert) {
+  // Renderiza el modal con el certificado seleccionado.
   modalRoot.innerHTML = `
     <div id="modalOverlay"
       class="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
@@ -130,6 +133,7 @@ export function openCertModal(modalRoot, cert) {
     </div>
   `;
 
+  // Conecta el botón de cierre y el click fuera del modal.
   const btn = document.getElementById("modalCloseBtn");
   if (btn) btn.addEventListener("click", () => closeModal(modalRoot));
 
@@ -144,6 +148,7 @@ export function openCertModal(modalRoot, cert) {
 }
 
 export function closeModal(modalRoot) {
+  // Limpia el contenido del modal y restaura el scroll.
   modalRoot.innerHTML = "";
   document.body.style.overflow = "";
 }
