@@ -17,25 +17,33 @@ const EMAIL = "victorhernandez.fraga@gmail.com";
 const PHONE_DISPLAY = "+52 8281040259";
 const PHONE_TEL = "+528281040259";
 
-// CV en /public/
-const CV_PDF = "/CV_Victor_Hernandez.pdf";
-
-// Tu foto (en /public/profile.jpeg)
-const PROFILE_IMG = "/profile.jpeg";
+/**
+ * ✅ IMPORTANTÍSIMO para GitHub Pages:
+ * BASE será:
+ * - "/" en local
+ * - "/Portafolio_Victor_Hernandez/" en GitHub Pages
+ */
+const BASE = import.meta.env.BASE_URL;
 
 /* -------------------- Assets -------------------- */
 
+// CV en /public/
+const CV_PDF = `${BASE}CV_Victor_Hernandez.pdf`;
+
+// Tu foto (en /public/profile.jpeg)
+const PROFILE_IMG = `${BASE}profile.jpeg`;
+
 // Screenshots (en /public/)
 const PROJECT_IMAGES = {
-  quality: "/Quality1.png",
-  cartas: "/CartasAsignacion.png",
-  factura: "/factura.png",
-  creditos: "/Fincen1.png",
+  quality: `${BASE}Quality1.png`,
+  cartas: `${BASE}CartasAsignacion.png`,
+  factura: `${BASE}factura.png`,
+  creditos: `${BASE}Fincen1.png`,
 };
 
 // Certificados (en /public/)
 const CERT_IMAGES = {
-  python: "/cert_python_santander.png",
+  python: `${BASE}cert_python_santander.png`,
 };
 
 /* -------------------- Data -------------------- */
@@ -48,7 +56,10 @@ const PROJECTS = [
     imageAlt: "Screenshot del sitio Quality",
     imageSrc: PROJECT_IMAGES.quality,
     stack: ["HTML", "CSS", "JavaScript", "Ionos", "WhatsApp API"],
-    bullets: ["Landing institucional y promocional.", "Enfoque en presencia digital, contacto y conversión."],
+    bullets: [
+      "Landing institucional y promocional.",
+      "Enfoque en presencia digital, contacto y conversión.",
+    ],
     visibility: "public",
     link: QUALITY_URL,
     linkLabel: "Ver sitio",
@@ -77,7 +88,10 @@ const PROJECTS = [
     imageAlt: "Screenshot del bot de WhatsApp para facturación",
     imageSrc: PROJECT_IMAGES.factura,
     stack: ["Node.js", "Twilio API", "Facturama API", "PM2", "Nginx"],
-    bullets: ["Chatbot para facturas y complementos de pago.", "Integración completa del flujo conversacional con APIs externas."],
+    bullets: [
+      "Chatbot para facturas y complementos de pago.",
+      "Integración completa del flujo conversacional con APIs externas.",
+    ],
     visibility: "private",
     link: null,
     linkLabel: null,
@@ -90,7 +104,10 @@ const PROJECTS = [
     imageAlt: "Screenshot de la plataforma de créditos comunitarios",
     imageSrc: PROJECT_IMAGES.creditos,
     stack: ["JavaScript", "React", "Supabase", "PostgreSQL"],
-    bullets: ["Administración de préstamos, pagos y grupos.", "Desarrollo integral (frontend y backend)."],
+    bullets: [
+      "Administración de préstamos, pagos y grupos.",
+      "Desarrollo integral (frontend y backend).",
+    ],
     visibility: "private",
     link: null,
     linkLabel: null,
@@ -104,7 +121,8 @@ const MORE_PROJECTS = [
     id: "users-devices",
     title: "Sistema de Gestión de Usuarios y Dispositivos",
     tag: "Privado",
-    desc: "Módulo vinculado al sistema de cartas de asignación, para control de usuarios y equipos.",
+    desc:
+      "Módulo vinculado al sistema de cartas de asignación, para control de usuarios y equipos.",
     stack: ["FastAPI", "PostgreSQL", "Svelte", "Nginx"],
     role: "Desarrollador backend y líder técnico del proyecto",
   },
@@ -112,7 +130,8 @@ const MORE_PROJECTS = [
     id: "data-loader",
     title: "WHR / GTIM Data Loader (ETL)",
     tag: "Privado",
-    desc: "Pipeline ETL para ingestión de CSV, validación, transformación y carga (arquitectura por pipelines).",
+    desc:
+      "Pipeline ETL para ingestión de CSV, validación, transformación y carga (arquitectura por pipelines).",
     stack: ["Python", "Pandas", "PostgreSQL", "DuckDB"],
     role: "Desarrollador (arquitectura, validaciones y pipeline)",
   },
@@ -120,7 +139,8 @@ const MORE_PROJECTS = [
     id: "quality-orders",
     title: "Sistema de Administración de Pedidos (Quality)",
     tag: "Privado",
-    desc: "Sistema para administración y control de pedidos operativos (proyecto interno/cliente).",
+    desc:
+      "Sistema para administración y control de pedidos operativos (proyecto interno/cliente).",
     stack: ["Node.js", "Express", "PostgreSQL", "Bootstrap"],
     role: "Desarrollador (backend y flujo operativo)",
   },
@@ -800,7 +820,9 @@ function projectCard(p) {
 
       <div class="flex items-start justify-between gap-3">
         <h3 class="text-base font-semibold">${escapeHtml(p.title)}</h3>
-        <span class="rounded-full border border-line bg-black/20 px-3 py-1 text-xs text-muted">${escapeHtml(p.tag)}</span>
+        <span class="rounded-full border border-line bg-black/20 px-3 py-1 text-xs text-muted">${escapeHtml(
+          p.tag
+        )}</span>
       </div>
 
       <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-muted">
@@ -808,7 +830,9 @@ function projectCard(p) {
       </ul>
 
       <div class="mt-3 flex flex-wrap gap-2 text-xs text-muted">
-        ${p.stack.map((s) => `<span class="rounded-lg border border-line px-2 py-1">${escapeHtml(s)}</span>`).join("")}
+        ${p.stack
+          .map((s) => `<span class="rounded-lg border border-line px-2 py-1">${escapeHtml(s)}</span>`)
+          .join("")}
       </div>
 
       <div class="mt-4 flex flex-wrap gap-2">
@@ -836,7 +860,9 @@ function moreProjectCard(p) {
     <article class="rounded-2xl border border-line bg-white/5 p-4 hover:bg-white/[0.07] transition">
       <div class="flex items-start justify-between gap-3">
         <h3 class="text-base font-semibold">${escapeHtml(p.title)}</h3>
-        <span class="rounded-full border border-line bg-black/20 px-3 py-1 text-xs text-muted">${escapeHtml(p.tag)}</span>
+        <span class="rounded-full border border-line bg-black/20 px-3 py-1 text-xs text-muted">${escapeHtml(
+          p.tag
+        )}</span>
       </div>
 
       <p class="mt-2 text-sm text-muted">${escapeHtml(p.desc)}</p>
@@ -846,7 +872,9 @@ function moreProjectCard(p) {
       </p>
 
       <div class="mt-3 flex flex-wrap gap-2 text-xs text-muted">
-        ${p.stack.map((s) => `<span class="rounded-lg border border-line px-2 py-1">${escapeHtml(s)}</span>`).join("")}
+        ${p.stack
+          .map((s) => `<span class="rounded-lg border border-line px-2 py-1">${escapeHtml(s)}</span>`)
+          .join("")}
       </div>
 
       <div class="mt-4">
@@ -875,7 +903,9 @@ function certCard(c) {
 
       <div class="flex items-start justify-between gap-3">
         <h3 class="text-base font-semibold">${escapeHtml(c.title)}</h3>
-        <span class="rounded-full border border-line bg-black/20 px-3 py-1 text-xs text-muted">${escapeHtml(c.status)}</span>
+        <span class="rounded-full border border-line bg-black/20 px-3 py-1 text-xs text-muted">${escapeHtml(
+          c.status
+        )}</span>
       </div>
 
       <p class="mt-2 text-sm text-muted">${escapeHtml(c.org)}</p>
@@ -889,7 +919,9 @@ function progressCourseCard(c) {
     <article class="rounded-2xl border border-line bg-white/5 p-4">
       <div class="flex items-start justify-between gap-3">
         <h3 class="text-base font-semibold">${escapeHtml(c.title)}</h3>
-        <span class="rounded-full border border-line bg-black/20 px-3 py-1 text-xs text-muted">${escapeHtml(c.status)}</span>
+        <span class="rounded-full border border-line bg-black/20 px-3 py-1 text-xs text-muted">${escapeHtml(
+          c.status
+        )}</span>
       </div>
       <p class="mt-2 text-sm text-muted">${escapeHtml(c.org)}</p>
     </article>
