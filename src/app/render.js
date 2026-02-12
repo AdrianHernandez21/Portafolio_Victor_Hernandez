@@ -187,12 +187,13 @@ export function renderApp({ config, data }) {
 
         ${experienceCard({
           company: "Webco",
-          role: "Desarrollador Web (colaboración vía Fiverr)",
-          time: "May 2025",
+          role: "Desarrollador Full Stack Freelance (Colaboración por proyecto).",
+          time: "May 2025 - Actualidad",
           bullets: [
-            "Colaboración en desarrollo de sistemas (front-end y back-end).",
-            "Integraciones y automatización para procesos operativos.",
-            "Apoyo en requerimientos, pruebas y mantenimiento.",
+            "Desarrollo de soluciones web personalizadas (frontend y backend) para optimización de procesos internos.",
+            "Implementación de chatbot de facturación mediante integración con Facturama API y Twilio WhatsApp.",
+            "Diseño y desarrollo de plataformas web para sectores financiero, deportivo y comercial.",
+            "Gestión de bases de datos en PostgreSQL y despliegue en entornos productivos.",
           ],
         })}
       </div>

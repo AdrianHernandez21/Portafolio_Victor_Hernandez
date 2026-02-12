@@ -8,8 +8,11 @@ export function getData(config) {
   };
 
   // Rutas de imágenes para certificados.
+  // IMPORTANTE: agrega este archivo a tu carpeta de imágenes:
+  // cert_pentest_edutin.png
   const CERT_IMAGES = {
     python: `${config.BASE}cert_python_santander.png`,
+    pentest: `${config.BASE}cert_pentest_edutin.png`,
   };
 
   // Proyectos principales a mostrar en la sección destacada.
@@ -65,7 +68,7 @@ export function getData(config) {
     {
       id: "creditos",
       title: "Plataforma de Créditos Comunitarios",
-      tag: "Demo / Académico",
+      tag: "Privado",
       imageAlt: "Screenshot de la plataforma de créditos comunitarios",
       imageSrc: PROJECT_IMAGES.creditos,
       stack: ["JavaScript", "React", "Supabase", "PostgreSQL"],
@@ -107,7 +110,8 @@ export function getData(config) {
       desc:
         "Sistema para administración y control de pedidos operativos (proyecto interno/cliente).",
       stack: ["Node.js", "Express", "PostgreSQL", "Bootstrap"],
-      role: "Líder del proyecto y administrador del sistema (dirección técnica y flujo operativo)",
+      role:
+        "Líder del proyecto y administrador del sistema (dirección técnica y flujo operativo)",
     },
   ];
 
@@ -121,11 +125,18 @@ export function getData(config) {
       imageAlt: "Certificado Programación básica en Python - Santander",
       imageSrc: CERT_IMAGES.python,
     },
+    {
+      id: "pentest-edutin",
+      title: "Pentest",
+      org: "Edutin Academy",
+      status: "Completado",
+      imageAlt: "Certificado Pentest - Edutin Academy",
+      imageSrc: CERT_IMAGES.pentest,
+    },
   ];
 
   // Cursos actualmente en progreso.
   const COURSES_IN_PROGRESS = [
-    { id: "pentest-edutin", title: "Pentest", org: "Edutin Academy", status: "En curso" },
     {
       id: "fundamentos-infotect",
       title: "Fundamentos del desarrollo de software",
