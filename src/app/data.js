@@ -138,6 +138,20 @@ export function getData(config) {
   // Cursos actualmente en progreso.
   const COURSES_IN_PROGRESS = [
     {
+      id: "ai-azure-mslearn",
+      title: "Introduction to AI in Azure",
+      org: "Microsoft Learn",
+      status: "En curso",
+      url: "https://learn.microsoft.com/en-us/training/paths/introduction-to-ai-on-azure/",
+    },
+    {
+      id: "strategic-thinking-santander",
+      title: "Pensamiento y mentalidad estratégica",
+      org: "Santander Open Academy",
+      status: "En curso",
+      url: "https://app.santanderopenacademy.com/es/course/strategic-thinking-strategic-mindset",
+    },
+    {
       id: "fundamentos-infotect",
       title: "Fundamentos del desarrollo de software",
       org: "Infotec / Gobierno de México",
